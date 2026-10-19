@@ -27,6 +27,9 @@ export class VideoExport {
 		this.#Decoder = new Decoder(actions, media, compositor, this.#Encoder)
 	}
 
+	/** devstudio 포팅(R-J28): 내보낸 파일(다중화된 mp4) — 명령 다리가 파일 대화상자 없이 읽는다 */
+	get exported_file(): File | null { return (this.#Encoder as any).file ?? null }
+
 	async save_file() {
 		const handle = await this.#FileSystemHelper.getFileHandle()
 		await this.#FileSystemHelper.writeFile(handle, this.#Encoder.file!)

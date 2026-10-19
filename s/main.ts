@@ -1,4 +1,3 @@
-import posthog from 'posthog-js'
 import {register_to_dom, html, Nexus} from "@benev/slate"
 import {ConstructEditor, single_panel_layout} from "@benev/construct/x/mini.js"
 
@@ -30,13 +29,7 @@ import {ExportPanel} from "./components/omni-timeline/views/export/panel.js"
 import {MediaPlayerPanel} from "./components/omni-timeline/views/media-player/panel.js"
 import {ExportConfirmModal, ExportInProgressOverlay} from './components/omni-timeline/views/export/view.js'
 
-posthog.init('phc_CMbHMWGVJSqM1RqGyGxWCyqgaSGbGFKl964fIN3NDwU',
-	{
-			api_host: 'https://eu.i.posthog.com',
-			person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
-			autocapture: false
-	}
-)
+// devstudio 포팅: 외부 분석 전송(posthog) 끔 — 133 내부 도구에서 사용 기록을 밖으로 보내지 않는다
 
 const IS_TEST_ENV = window.location.hostname.startsWith("test")
 
@@ -157,3 +150,6 @@ const router = new HashRouter({
 document.body.append(router.element)
 document.documentElement.className = "sl-theme-dark"
 //@ts-ignore
+
+// devstudio 포팅(R-J28) — 편집 명령 다리 window.__video
+import "./devstudio/bridge.js"
