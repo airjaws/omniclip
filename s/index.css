@@ -2,7 +2,7 @@
 @import url(../assets/fonts/Poppins/Fonts/WEB/css/poppins.css);
 @import url(../assets/fonts/NotoEmoji/Fonts/WEB/css/noto.css);
 @import url(./views/tooltip/styles.css);
-@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Noto+Emoji:wght@300..700&display=swap');
+/* devstudio 포팅: 구글 폰트(Noto Emoji) 대신 로컬 assets/fonts/NotoEmoji(위 @import) — 133 인터넷 없이 동작 */
 
 * {
 	padding: 0;

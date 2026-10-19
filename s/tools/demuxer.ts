@@ -12,7 +12,8 @@ export async function demuxer(
 	const webdemuxer = new WebDemuxer({
 		// ⚠️ you need to put the dist/wasm-files file in the npm package into a static directory like public
 		// making sure that the js and wasm in wasm-files are in the same directory
-		wasmLoaderPath: "https://cdn.jsdelivr.net/npm/web-demuxer@1.0.5/dist/wasm-files/ffmpeg.min.js",
+		// devstudio 포팅: CDN(1.0.5 로더) 대신 설치된 라이브러리(web-demuxer 1.0.1)와 같은 판의 로컬 로더 — 133 인터넷 없이
+		wasmLoaderPath: `${window.location.origin}/node_modules/web-demuxer/dist/wasm-files/ffmpeg.js`,
 	})
 	await webdemuxer.load(file)
 	const config = await webdemuxer.getVideoDecoderConfig()

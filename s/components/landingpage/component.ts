@@ -424,7 +424,7 @@ export class LandingPage extends LitElement {
 							<div class="gh">
 								<a href="https://github.com/omni-media/omniclip" class="flex">
 									<span class="btn btn-github">View on GitHub</span>
-									<img class="stars" src="https://img.shields.io/github/stars/omni-media/omniclip" alt="GitHub Stars">
+									<!-- devstudio 포팅: 외부 배지(shields.io) 뺌 -->
 								</a>
 							</div>
 							<p>

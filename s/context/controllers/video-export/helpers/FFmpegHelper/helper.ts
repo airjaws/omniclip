@@ -22,7 +22,7 @@ export class FFmpegHelper {
 	}
 
 	async #load_ffmpeg() {
-		const baseURL = 'https://unpkg.com/@ffmpeg/core@0.12.5/dist/esm'
+		const baseURL = '/node_modules/@ffmpeg/core/dist/esm'   // devstudio 포팅: unpkg 대신 로컬(@ffmpeg/core 0.12.5 devDependency)
 		await this.ffmpeg.load({
 			coreURL: await toBlobURL(`${baseURL}/ffmpeg-core.js`, 'text/javascript'),
 			wasmURL: await toBlobURL(`${baseURL}/ffmpeg-core.wasm`, 'application/wasm'),
